@@ -6,10 +6,8 @@ const connectDB=require("./config/db");
 const adminRoutes = require("./routes/adminRoutes");
 const authRoutes = require("./routes/authRoutes");
 
-app.get("/", (req, res) => {
-  res.send("Interioverse Backend is running 🚀");
-});
-gi
+
+
 
 
 const app=express();
@@ -17,7 +15,9 @@ connectDB();
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({origin:true,credentials:true}));
+app.use(cors({origin:true,credentials:true}));app.get("/", (req, res) => {
+  res.send("Interioverse Backend is running 🚀");
+});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/admin", adminRoutes);
