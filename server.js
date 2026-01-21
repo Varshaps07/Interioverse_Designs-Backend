@@ -6,7 +6,10 @@ const connectDB=require("./config/db");
 const adminRoutes = require("./routes/adminRoutes");
 const authRoutes = require("./routes/authRoutes");
 
-
+app.get("/", (req, res) => {
+  res.send("Interioverse Backend is running 🚀");
+});
+gi
 
 
 const app=express();
