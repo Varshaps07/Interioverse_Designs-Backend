@@ -44,7 +44,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: true,
+    origin:" https://interioverse-designs.vercel.app",
     credentials: true
   })
 );
