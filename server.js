@@ -108,14 +108,26 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors({
-  origin: ["http://localhost:5173",
-"interioverse-designs-lovj.vercel.app"
+// app.use(cors({
+//   origin: ["http://localhost:5173",
+// "interioverse-designs-lovj.vercel.app"
+//     ],
+
+
+//   credentials: true
+// }));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://interioverse-designs.vercel.app",
+      "https://interioverse-designs-lovj.vercel.app"
     ],
-
-
-  credentials: true
-}));
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+  })
+);
 
 
 // health check
