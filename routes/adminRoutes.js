@@ -1,20 +1,40 @@
+// const express = require("express");
+// const router = express.Router();
+
+// const verifyAdmin = require("../middleware/verifyAdmin");
+// const { verifyUser, deleteUser } = require("../controllers/adminController");
+// const User = require("../models/Profile");
+
+// // Get all users (excluding admin if needed)
+// router.get("/users", verifyAdmin, async (req, res) => {
+//   const users = await User.find();
+//   res.json(users);
+// });
+
+// // Verify user API
+// router.patch("/users/:id/verify", verifyAdmin, verifyUser);
+
+// // Delete user API
+// router.delete("/users/:id", verifyAdmin, deleteUser);
+
+// module.exports = router;
 const express = require("express");
 const router = express.Router();
 
 const verifyAdmin = require("../middleware/verifyAdmin");
-const { verifyUser, deleteUser } = require("../controllers/adminController");
-const User = require("../models/Profile");
+const {
+  getUsers,
+  verifyUser,
+  deleteUser
+} = require("../controllers/adminController");
 
-// Get all users (excluding admin if needed)
-router.get("/users", verifyAdmin, async (req, res) => {
-  const users = await User.find();
-  res.json(users);
-});
+// GET all users
+router.get("/users", verifyAdmin, getUsers);
 
-// Verify user API
-router.patch("/users/:id/verify", verifyAdmin, verifyUser);
+// VERIFY / UNVERIFY user
+router.put("/verify/:id", verifyAdmin, verifyUser);
 
-// Delete user API
-router.delete("/users/:id", verifyAdmin, deleteUser);
+// DELETE user
+router.delete("/user/:id", verifyAdmin, deleteUser);
 
 module.exports = router;
