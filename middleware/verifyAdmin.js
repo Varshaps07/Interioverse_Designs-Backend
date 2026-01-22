@@ -7,7 +7,11 @@ const verifyAdmin = (req, res, next) => {
     if (!token)
       return res.status(401).json({ msg: "Not logged in" });
 
-    const decoded = jwt.verify(token, "SECRET_KEY");
+
+const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+
+
 
     if (decoded.role !== "admin")
       return res.status(403).json({ msg: "Access denied" });
