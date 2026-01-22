@@ -81,6 +81,7 @@
 const Profile = require("../models/Profile");
 const Account = require("../models/Account");
 const jwt = require("jsonwebtoken");
+const JWT_SECRET = "SECRET_KEY"; // SAME everywhere
 
 // SIGNUP → profiles
 exports.signup = async (req, res) => {
@@ -170,7 +171,7 @@ exports.login = async (req, res) => {
 
 
 
-      
+
     );
 
     res.cookie("token", token, {
@@ -203,7 +204,7 @@ exports.me = (req, res) => {
       return res.status(401).json({ msg: "Not logged in" });
     }
 
-    const decoded = jwt.verify(token, "SECRET_KEY");
+    const decoded = jwt.verify(token, JWT_SECRET);
 
     res.json(decoded);
 
