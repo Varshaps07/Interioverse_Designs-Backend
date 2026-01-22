@@ -127,7 +127,7 @@ app.use(cookieParser());
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    // "https://interioverse-designs.vercel.app",
+    "https://interioverse-designs.vercel.app",
     // "https://interioverse-designs-21tk.vercel.app"
   ],
   credentials: true
