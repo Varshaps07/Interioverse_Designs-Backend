@@ -81,7 +81,8 @@
 const Profile = require("../models/Profile");
 const Account = require("../models/Account");
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = "SECRET_KEY"; // SAME everywhere
+const JWT_SECRET = process.env.JWT_SECRET;
+
 
 // SIGNUP → profiles
 exports.signup = async (req, res) => {
