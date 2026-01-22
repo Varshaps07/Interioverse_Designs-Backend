@@ -120,7 +120,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://interioverse-designs.vercel.app",
+      // "https://interioverse-designs.vercel.app",
       "https://interioverse-designs-lovj.vercel.app"
     ],
     credentials: true,
